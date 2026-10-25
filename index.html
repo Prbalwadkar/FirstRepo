@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work Log</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>Work Log</h1>
+
+    <nav class="day-nav" aria-label="Choose day">
+      <button type="button" id="prev-day" aria-label="Previous day">‹</button>
+      <input type="date" id="day-picker" aria-label="Day">
+      <button type="button" id="next-day" aria-label="Next day">›</button>
+      <button type="button" id="today" class="link">Today</button>
+    </nav>
+
+    <form id="entry-form" class="entry-form">
+      <input id="task-input" type="text" placeholder="What did you work on?" autocomplete="off" required>
+      <div class="duration">
+        <input id="hours-input" type="number" min="0" max="24" step="1" placeholder="0" aria-label="Hours">
+        <span>h</span>
+        <input id="minutes-input" type="number" min="0" max="59" step="5" placeholder="0" aria-label="Minutes">
+        <span>m</span>
+      </div>
+      <button type="submit" id="submit-btn">Add</button>
+      <button type="button" id="cancel-edit" class="link" hidden>Cancel</button>
+    </form>
+    <p id="form-error" class="error" hidden></p>
+
+    <section class="day">
+      <div class="day-header">
+        <h2 id="day-title"></h2>
+        <span id="day-total" class="total"></span>
+      </div>
+      <ul id="entry-list" class="entry-list"></ul>
+      <p id="empty" class="empty">Nothing logged for this day yet.</p>
+    </section>
+
+    <section class="history">
+      <div class="day-header">
+        <h2>History</h2>
+        <span id="grand-total" class="total"></span>
+      </div>
+      <ul id="history-list" class="history-list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
